@@ -27,7 +27,7 @@ pipeline {
          stage ("build"){
             steps {
                 script{
-                    sh "pwd && ls"
+                    sh "pwd && ls && env"
                     sh "mvn ${buildShell}"
                 }
             }
