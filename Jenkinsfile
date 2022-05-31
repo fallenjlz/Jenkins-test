@@ -23,6 +23,7 @@ pipeline {
                         env |grep -i build
                         '''
                     sh "mvn ${buildShell}"
+                    println("---share test---")
                     tools.PrintMes("share library")
                 }
             }
