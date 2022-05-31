@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    git branch: 'main', credentialsId: 'f3641d1f-0ffe-4732-82b2-7ec742e9a31a', url: 'git@github.com:fallenjlz/Jenkins-test.git'
     stages {
 
 
