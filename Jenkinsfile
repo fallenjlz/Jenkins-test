@@ -27,6 +27,7 @@ pipeline {
          stage ("build"){
             steps {
                 script{
+                    currentBuild.displayName = "${BUILD_TAG}"
                     sh '''
                         pwd
                         ls
