@@ -5,7 +5,7 @@ pipeline {
     agent any
     parameters {
         string(name: 'BRANCH', defaultValue: 'main', description: 'branch choice')
-        choice(name: 'buildTyp', choices: ['gradle', 'maven', 'ant'], description: 'Pick something')
+        choice(name: 'buildType', choices: ['gradle', 'maven', 'ant'], description: 'Pick something')
     }
     stages {
         
