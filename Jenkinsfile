@@ -37,6 +37,19 @@ pipeline {
                 }
             }
          }
+        
+        stage ("antbuild"){
+            steps {
+                script{
+                    try{
+                        sh "ant ${buildShell}"
+                    } catch(e) {
+                        println(e)
+                    }
+                    
+                }
+            }
+         }
 
          stage ("gradlebuild"){
             steps {
