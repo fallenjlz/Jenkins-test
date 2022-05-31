@@ -19,47 +19,48 @@ pipeline {
                 script{
                    currentBuild.displayName = "${BUILD_TAG}"
                    println("share test")
+                   hello()
                    tools.PrintMes("share Library")
                     
                 }
             }
          }
          
-         stage ("build"){
-            steps {
-                script{
+//          stage ("build"){
+//             steps {
+//                 script{
                    
-                    sh '''
-                        pwd
-                        ls
-                        env |grep -i build
-                        '''
-                    sh "mvn ${buildShell}"
+//                     sh '''
+//                         pwd
+//                         ls
+//                         env |grep -i build
+//                         '''
+//                     sh "mvn ${buildShell}"
                     
-                }
-            }
-         }
+//                 }
+//             }
+//          }
         
-        stage ("antbuild"){
-            steps {
-                script{
-                    try{
-                        sh "ant ${buildShell}"
-                    } catch(e) {
-                        println(e)
-                    }
+//         stage ("antbuild"){
+//             steps {
+//                 script{
+//                     try{
+//                         sh "ant ${buildShell}"
+//                     } catch(e) {
+//                         println(e)
+//                     }
                     
-                }
-            }
-         }
+//                 }
+//             }
+//          }
 
-         stage ("gradlebuild"){
-            steps {
-                script{
-                    gradleHome = tool "GRADLE"
-                    sh "${gradleHome}/bin/gradle ${buildShell}"
-                }
-            }
-         }
-    }
+//          stage ("gradlebuild"){
+//             steps {
+//                 script{
+//                     gradleHome = tool "GRADLE"
+//                     sh "${gradleHome}/bin/gradle ${buildShell}"
+//                 }
+//             }
+//          }
+//     }
 }
