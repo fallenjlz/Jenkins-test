@@ -1,7 +1,7 @@
 package org.devops
 
 def Build(buildType,buildShell){
-    def buildTools = ["maven":"mnv","ant":"ant","gradle":"GRADLE"]
+    def buildTools = ["maven":"mvn","ant":"ant","gradle":"GRADLE"]
     
     
     println("当前选择的构建类型为 ${buildType}")
