@@ -1,10 +1,11 @@
 @Library('jenkinslib') _
 def tools = new org.devops.tools()
-
+def build = new org.devops.build()
 pipeline {
     agent any
     parameters {
         string(name: 'BRANCH', defaultValue: 'main', description: 'branch choice')
+        string(name: 'buildType', defaultValue: 'gradle', description: 'branch choice')
     }
     stages {
         
@@ -26,20 +27,20 @@ pipeline {
             }
          }
          
-//          stage ("build"){
-//             steps {
-//                 script{
+         stage ("build"){
+            steps {
+                script{
                    
-//                     sh '''
-//                         pwd
-//                         ls
-//                         env |grep -i build
-//                         '''
-//                     sh "mvn ${buildShell}"
-                    
-//                 }
-//             }
-//          }
+                    sh '''
+                        pwd
+                        ls
+                        env |grep -i build
+                        '''
+                    sh ""
+                    build.Build(buildType,buildShell)
+                }
+            }
+         }
         
 //         stage ("antbuild"){
 //             steps {
