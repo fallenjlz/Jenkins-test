@@ -36,7 +36,6 @@ pipeline {
                         ls
                         env |grep -i build
                         '''
-                    sh ""
                     build.Build(buildType,buildShell)
                 }
             }
