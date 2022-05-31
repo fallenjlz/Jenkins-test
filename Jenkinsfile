@@ -1,4 +1,4 @@
-@Library('Jenkins-test') _
+@Library('jenkinslib') _
 def tools = new org.devops.tools()
 
 pipeline {
