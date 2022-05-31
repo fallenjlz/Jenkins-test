@@ -18,7 +18,7 @@ pipeline {
          stage ("invoke share library"){
             steps {
                 script{
-                   currentBuild.displayName = "${BUILD_TAG}"
+                   currentBuild.displayName = "${BUILD_TAG}-${buildType}"
                    println("share test")
                    hello()
                    tools.PrintMes("share Library")
