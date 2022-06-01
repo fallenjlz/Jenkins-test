@@ -9,6 +9,6 @@ def Build(buildType,buildShell){
         buildHome= tool buildTools[buildType]
         sh "${buildHome}/bin/${buildType}  ${buildShell}"
     }else {
-        sh "${buildTools[buildType]} -v"
+        sh "${buildTools[buildType]} ${buildShell}"
     }
  }
