@@ -1,6 +1,7 @@
 @Library('jenkinslib') _
 def tools = new org.devops.tools()
 def build = new org.devops.build()
+def deploy = new org.devops.deploy()
 pipeline {
     agent any
     parameters {
@@ -37,6 +38,7 @@ pipeline {
                         env |grep -i build
                         '''
                     build.Build(buildType,buildShell)
+                    deploy.Deploy("-i /root/hosts all ","-m ping")
                 }
             }
          }
