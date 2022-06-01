@@ -8,7 +8,7 @@ pipeline {
         string(name: 'BRANCH', defaultValue: 'main', description: 'branch choice')
         string(name: 'srcUrl', defaultValue: 'main', description: 'branch choice')
         choice(name: 'buildType', choices: ['gradle', 'maven', 'ant'], description: 'Pick something')
-        choice(name: 'buildShell', choices: ['-v','clean package -DskipTests'], description: 'Pick something')
+        choice(name: 'buildShell', choices: ['-v','clean package -DskipTests -X'], description: 'Pick something')
     }
     
     stages {
