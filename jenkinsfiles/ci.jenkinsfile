@@ -3,14 +3,9 @@ def tools = new org.devops.tools()
 def build = new org.devops.build()
 def deploy = new org.devops.deploy()
 pipeline {
-//     agent {
-//         docker {
-//              image 'maven:3.8.1-adoptopenjdk-11'
-//            args '-v /root/.m2:/root/.m2'
-//        }
-//     }
 
     agent any
+
     parameters {
         choice(name: 'BRANCH', choices: ['main','master'], description: 'branch choice')
         choice(name: 'srcUrl', choices: ['git@github.com:jenkins-docs/simple-java-maven-app.git','git@github.com:fallenjlz/Jenkins-test.git'], description: 'branch choice')
