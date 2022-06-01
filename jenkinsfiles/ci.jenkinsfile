@@ -3,12 +3,14 @@ def tools = new org.devops.tools()
 def build = new org.devops.build()
 def deploy = new org.devops.deploy()
 pipeline {
-    agent {
-        docker {
-             image 'maven:3.8.1-adoptopenjdk-11'
-           args '-v /root/.m2:/root/.m2'
-       }
-    }
+//     agent {
+//         docker {
+//              image 'maven:3.8.1-adoptopenjdk-11'
+//            args '-v /root/.m2:/root/.m2'
+//        }
+//     }
+
+    agent any
     parameters {
         string(name: 'BRANCH', defaultValue: 'main', description: 'branch choice')
         string(name: 'srcUrl', defaultValue: 'main', description: 'branch choice')
