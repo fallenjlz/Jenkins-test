@@ -38,6 +38,13 @@ pipeline {
                         env |grep -i build
                         '''
                     build.Build(buildType,buildShell)
+                }
+            }
+         }
+         
+         stage ("deploy"){
+            steps {
+                script{
                     deploy.Deploy("-i /root/hosts all ","-m ping")
                 }
             }
