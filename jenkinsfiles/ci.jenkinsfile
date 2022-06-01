@@ -12,8 +12,8 @@ pipeline {
 
     agent any
     parameters {
-        string(name: 'BRANCH', defaultValue: 'main', description: 'branch choice')
-        string(name: 'srcUrl', defaultValue: 'main', description: 'branch choice')
+        choice(name: 'BRANCH', choices: ['main','master'], description: 'branch choice')
+        choice(name: 'srcUrl', choices: ['git@github.com:jenkins-docs/simple-java-maven-app.git','git@github.com:fallenjlz/Jenkins-test.git'], description: 'branch choice')
         choice(name: 'buildType', choices: ['gradle', 'mvn', 'ant'], description: 'Pick something')
         choice(name: 'buildShell', choices: ['-v',' -B -DskipTests clean package'], description: 'Pick something')
     }
