@@ -52,35 +52,14 @@ pipeline {
             }
          }
          
-//          stage ("deploy"){
-//             steps {
-//                 script{
-//                     deploy.Deploy("-i /root/hosts all ","-m ping")
-//                 }
-//             }
-//          }
-        
-//         stage ("antbuild"){
-//             steps {
-//                 script{
-//                     try{
-//                         sh "ant ${buildShell}"
-//                     } catch(e) {
-//                         println(e)
-//                     }
-                    
-//                 }
-//             }
-//          }
+         stage ("deploy"){
+            steps {
+                script{
+                    deploy.Deploy("-i /root/hosts all ","-m ping")
+                }
+            }
+         }
 
-//          stage ("gradlebuild"){
-//             steps {
-//                 script{
-//                     gradleHome = tool "GRADLE"
-//                     sh "${gradleHome}/bin/gradle ${buildShell}"
-//                 }
-//             }
-//          }
     }
 }
 
