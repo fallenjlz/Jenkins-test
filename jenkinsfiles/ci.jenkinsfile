@@ -50,13 +50,13 @@ pipeline {
             }
          }
          
-         stage ("deploy"){
-            steps {
-                script{
-                    deploy.Deploy("-i /root/hosts all ","-m ping")
-                }
-            }
-         }
+//          stage ("deploy"){
+//             steps {
+//                 script{
+//                     deploy.Deploy("-i /root/hosts all ","-m ping")
+//                 }
+//             }
+//          }
         
 //         stage ("antbuild"){
 //             steps {
