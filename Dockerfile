@@ -12,3 +12,11 @@ RUN echo -e 'https://mirrors.aliyun.com/alpine/v3.6/main/\nhttps://mirrors.aliyu
     mv gradle.zip /opt && \
     cd /opt &&  unzip gradle.zip && rm gradle.zip
 ENV PATH "$PATH:/opt/gradle-${GRADLE_VERSION}/bin/"
+
+
+FROM xuankate/jenkins:1.3
+COPY apache-maven-3.8.5-bin.tar.gz /opt
+RUN apk del maven && \
+    cd /opt && \
+    tar zxf apache-maven-3.8.5-bin.tar.gz
+ENV PATH "$PATH:/opt/apache-maven-3.8.5/bin/"

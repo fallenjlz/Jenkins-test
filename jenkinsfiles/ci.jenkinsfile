@@ -14,7 +14,7 @@ pipeline {
     parameters {
         string(name: 'BRANCH', defaultValue: 'main', description: 'branch choice')
         string(name: 'srcUrl', defaultValue: 'main', description: 'branch choice')
-        choice(name: 'buildType', choices: ['gradle', 'maven', 'ant'], description: 'Pick something')
+        choice(name: 'buildType', choices: ['gradle', 'mvn', 'ant'], description: 'Pick something')
         choice(name: 'buildShell', choices: ['-v',' -B -DskipTests clean package'], description: 'Pick something')
     }
     
