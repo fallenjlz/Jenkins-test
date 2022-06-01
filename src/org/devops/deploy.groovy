@@ -1,5 +1,5 @@
 package org.devops
 
-def deploy(hosts,func){
+def Deploy(hosts,func){
   sh "ansible ${hosts} func"
 }
