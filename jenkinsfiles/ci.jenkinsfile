@@ -40,6 +40,7 @@ pipeline {
                     sh '''
                         pwd
                         ls
+                        env |grep -i user
                         env |grep -i build
                         '''
                     build.Build(buildType,buildShell)
