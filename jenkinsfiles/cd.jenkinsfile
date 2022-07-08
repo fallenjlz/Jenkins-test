@@ -25,12 +25,10 @@ pipeline {
                 script{
                    
                     sh '''
-                        ansible -i /root/hosts all -m setup |grep -i jenkins
                         env
                         pwd
                         ls
-                        cd ../../..
-                        bash deploy.sh
+                        bash ../../../deploy.sh
                         '''
 
                 }
