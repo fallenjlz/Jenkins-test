@@ -25,6 +25,7 @@ pipeline {
                 script{
                    
                     sh '''
+                        echo $WORKSPACE
                         env
                         pwd
                         ls
