@@ -28,6 +28,7 @@ pipeline {
                         env
                         pwd
                         ls
+                        cat conf.d/srv1.conf
                         bash ../../../deploy.sh
                         '''
 
