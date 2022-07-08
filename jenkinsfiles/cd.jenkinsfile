@@ -25,6 +25,7 @@ pipeline {
                 script{
                    
                     sh '''
+                        env
                         pwd
                         ls
                         cd ../../..
