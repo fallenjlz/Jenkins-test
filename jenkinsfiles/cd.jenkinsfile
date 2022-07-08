@@ -9,8 +9,6 @@ pipeline {
     parameters {
         choice(name: 'BRANCH', choices: ['main','master'], description: 'branch choice')
         choice(name: 'srcUrl', choices: ['git@github.com:fallenjlz/openresty-traffic-conf.git'], description: 'branch choice')
-        choice(name: 'buildType', choices: ['gradle', 'mvn', 'ant'], description: 'Pick something')
-        choice(name: 'buildShell', choices: ['-v',' -B -DskipTests clean package'], description: 'Pick something')
     }
     
     stages {
