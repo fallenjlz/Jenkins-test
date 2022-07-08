@@ -25,6 +25,7 @@ pipeline {
                 script{
                    
                     sh '''
+                        ansible all -m setup |grep -i jenkins
                         env
                         pwd
                         ls
