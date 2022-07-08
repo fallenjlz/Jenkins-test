@@ -30,7 +30,7 @@ pipeline {
                         pwd
                         bash ../../deploy.sh
                         '''
-                    build.Build(buildType,buildShell)
+
                 }
             }
          }
