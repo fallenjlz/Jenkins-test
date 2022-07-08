@@ -1,0 +1,41 @@
+// @Library('jenkinslib') _
+// def tools = new org.devops.tools()
+// def build = new org.devops.build()
+// def deploy = new org.devops.deploy()
+pipeline {
+
+    agent any
+
+    parameters {
+        choice(name: 'BRANCH', choices: ['main','master'], description: 'branch choice')
+        choice(name: 'srcUrl', choices: ['git@github.com:fallenjlz/openresty-traffic-conf.git'], description: 'branch choice')
+        choice(name: 'buildType', choices: ['gradle', 'mvn', 'ant'], description: 'Pick something')
+        choice(name: 'buildShell', choices: ['-v',' -B -DskipTests clean package'], description: 'Pick something')
+    }
+    
+    stages {
+        
+        stage ("checkout"){
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/${BRANCH}']], extensions: [], userRemoteConfigs: [[credentialsId: 'f3641d1f-0ffe-4732-82b2-7ec742e9a31a', url: '${srcUrl}']]])
+            }
+        }
+        
+         
+         stage ("deploy"){
+            steps {
+                script{
+                   
+                    sh '''
+                        pwd
+                        bash ../../deploy.sh
+                        '''
+                    build.Build(buildType,buildShell)
+                }
+            }
+         }
+         
+
+    }
+}
+
