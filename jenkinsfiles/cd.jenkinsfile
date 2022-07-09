@@ -6,17 +6,17 @@ pipeline {
 
     agent any
 
-    parameters {
-        choice(name: 'BRANCH', choices: ['main','master'], description: 'branch choice')
-        choice(name: 'srcUrl', choices: ['git@github.com:fallenjlz/openresty-traffic-conf.git'], description: 'branch choice')
-    }
+    //parameters {
+        //choice(name: 'BRANCH', choices: ['main','master'], description: 'branch choice')
+        //choice(name: 'srcUrl', choices: ['git@github.com:fallenjlz/openresty-traffic-conf.git'], description: 'branch choice')
+    //}
     
     stages {
         
         stage ("checkout"){
             steps {
                 withCredentials([string(credentialsId: 'af40ee21-1009-4f74-ab8b-ee96a29769e5', variable: '')]) {
-                    checkout([$class: 'GitSCM', branches: [[name: '*/${BRANCH}']], extensions: [], userRemoteConfigs: [[credentialsId: 'f3641d1f-0ffe-4732-82b2-7ec742e9a31a', url: '${srcUrl}']]])
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'f3641d1f-0ffe-4732-82b2-7ec742e9a31a', url: 'git@github.com:fallenjlz/openresty-traffic-conf.git']]])
                 } 
             }
         }
