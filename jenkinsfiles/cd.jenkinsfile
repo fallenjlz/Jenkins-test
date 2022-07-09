@@ -15,7 +15,9 @@ pipeline {
         
         stage ("checkout"){
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/${BRANCH}']], extensions: [], userRemoteConfigs: [[credentialsId: 'f3641d1f-0ffe-4732-82b2-7ec742e9a31a', url: '${srcUrl}']]])
+                withCredentials([string(credentialsId: 'af40ee21-1009-4f74-ab8b-ee96a29769e5', variable: '')]) {
+                    checkout([$class: 'GitSCM', branches: [[name: '*/${BRANCH}']], extensions: [], userRemoteConfigs: [[credentialsId: 'f3641d1f-0ffe-4732-82b2-7ec742e9a31a', url: '${srcUrl}']]])
+                } 
             }
         }
         
