@@ -22,18 +22,21 @@ pipeline {
          
          stage ("deploy"){
             steps {
-                script{
+                withCredentials([string(credentialsId: 'af40ee21-1009-4f74-ab8b-ee96a29769e5', variable: '')]) {
+                     script{
                    
-                    sh '''
-                        echo $WORKSPACE
-                        env
-                        pwd
-                        ls
-                        cat conf.d/srv1.conf
-                        bash ../../../deploy.sh
-                        '''
+                                sh '''
+                                    echo $WORKSPACE
+                                    env
+                                    pwd
+                                    ls
+                                    cat conf.d/srv1.conf
+                                    bash ../../../deploy.sh
+                                    '''
 
+                        }
                 }
+               
             }
          }
          
