@@ -33,7 +33,7 @@ pipeline {
                                     pwd
                                     ls
                                     for x in `ls conf.d/*.conf`;do 
-                                        cat conf.d/${x};
+                                        cat ${x};
                                     done
                                     bash ../../../deploy.sh
                                     '''
