@@ -32,7 +32,7 @@ pipeline {
                                     env
                                     pwd
                                     ls
-                                    for x in `ls conf.d`;do 
+                                    for x in `ls conf.d/*.conf`;do 
                                         cat conf.d/${x};
                                     done
                                     bash ../../../deploy.sh
