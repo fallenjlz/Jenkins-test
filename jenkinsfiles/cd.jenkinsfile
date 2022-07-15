@@ -32,11 +32,7 @@ pipeline {
                                     env
                                     pwd
                                     ls
-                                    for x in *.conf;do 
-                                        if "$x" == "nginx.conf"
-                                        then
-                                            continue
-                                        fi
+                                    for x in `ls conf.d`;do 
                                         cat conf.d/${x};
                                     done
                                     bash ../../../deploy.sh
